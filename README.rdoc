@@ -1,0 +1,11 @@
+= Marcador de truco
+
+Applicação para testar o Phonegap (http://phonegap.com/)
+
+== TODO:
+
+* Melhorar layout + UX;
+* Incluir aviso quando estiver na "Mão de 11" (ambos os times);
+* Incluir aviso quando estiver na "Mão de ferro";
+* Incluir link para reiniciar o jogo;
+* Exibir mensagem quando um dos times ganhar.
