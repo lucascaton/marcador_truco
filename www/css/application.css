@@ -1,0 +1,12 @@
+.left-column{
+  text-align:left;
+  float:left;
+}
+
+.right-column{
+  float:right;
+}
+
+.app{
+  background:#228B22;
+}

@@ -1,20 +1,56 @@
-var app = {
-    initialize: function() {
-        this.bind();
-    },
-    bind: function() {
-        document.addEventListener('deviceready', this.deviceready, false);
-    },
-    deviceready: function() {
-        // note that this is an event handler so the scope is that of the event
-        // so we need to call app.report(), and not this.report()
-        app.report('deviceready');
-    },
-    report: function(id) {
-        console.log("report:" + id);
-        // hide the .pending <p> and show the .complete <p>
-        document.querySelector('#' + id + ' .pending').className += ' hide';
-        var completeElem = document.querySelector('#' + id + ' .complete');
-        completeElem.className = completeElem.className.split('hide').join('');
+app = {
+  firstTeamPoints: 0,
+  secondTeamPoints: 0,
+  initialize: function(){
+    this.bind();
+  },
+
+  bind: function(){
+    document.addEventListener('deviceready', this.deviceready, false);
+  },
+
+  deviceready: function(){
+    app.setupPointsCounter();
+    app.updatePoints();
+  },
+
+  setupPointsCounter: function(){
+    $('.pointIncrement').click(function(e){
+      e.preventDefault();
+      var $this  = $(this),
+    team   = $this.data('team'),
+    points = parseInt($this.data('points'));
+    app.incrementPoints(team, points);
+    });
+  },
+
+  incrementPoints: function(team, points){
+    if(team == 'first'){
+      this.firstTeamPoints += points;
+    }else{
+      this.secondTeamPoints += points;
     }
+    app.tryFinalizeGame();
+    app.updatePoints();
+  },
+
+  updatePoints: function(){
+    $('#firstTeamPoints').html(app.firstTeamPoints);
+    $('#secondTeamPoints').html(app.secondTeamPoints);
+  },
+
+  tryFinalizeGame: function(){
+    if(this.firstTeamPoints >= 12){
+      this.firstTeamPoints = 12;
+      $('.pointIncrement').remove();
+    }
+
+    if(this.secondTeamPoints >= 12){
+      this.secondTeamPoints = 12;
+      $('.pointIncrement').remove();
+    }
+  }
 };
+
+// Uncomment for debugging in browser purposes only
+// app.deviceready();

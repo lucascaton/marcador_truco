@@ -1,7 +1,7 @@
 html,
 body {
     height:100%;
-    font-size:12px;
+    font-size:16px;
     width:100%;
 }
 
@@ -14,8 +14,6 @@ body {
 }
 
 .app {
-    background-image:url(../img/cordova.png);
-    background-repeat:no-repeat;
     margin:0px auto;
     width:275px;
 }
@@ -70,15 +68,12 @@ h1 {
 /* portrait */
 /* @media screen and (max-aspect-ratio: 1/1) */
 .app {
-    background-position:center top;
-    height:100px;              /* adds enough room for text */
     padding:180px 0px 0px 0px; /* background height - shadow offset */
 }
 
 /* lanscape (when wide enough) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:445px) {
     .app {
-        background-position:left center;
         height:140px;       /* height + padding = background image size */
         padding-left:170px; /* background width */
         padding-top:60px;   /* center the text */
