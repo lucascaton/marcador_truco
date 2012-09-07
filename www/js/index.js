@@ -18,8 +18,8 @@ app = {
     $('.pointIncrement').click(function(e){
       e.preventDefault();
       var $this  = $(this),
-    team   = $this.data('team'),
-    points = parseInt($this.data('points'));
+          team   = $this.data('team'),
+          points = parseInt($this.data('points'));
     app.incrementPoints(team, points);
     });
   },
