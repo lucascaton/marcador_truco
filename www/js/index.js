@@ -1,4 +1,4 @@
-app = {
+var app = {
   firstTeamPoints: 0,
   secondTeamPoints: 0,
   initialize: function(){
