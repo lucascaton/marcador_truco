@@ -53,4 +53,4 @@ var app = {
 };
 
 // Uncomment for debugging in browser purposes only
-// app.deviceready();
+app.deviceready();
